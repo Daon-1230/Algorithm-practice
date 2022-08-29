@@ -20,3 +20,31 @@
 + input을 `string`으로 받아서 처음 값과 맨 뒤 값을 비교
 + 중간까지 차례대로 비교하며 만약 다른 값일 경우 flag를 반환하여 값을 출력
 + 출력값을 대문자로 했다가 틀렸다,, 실수안하도록 조심,,,,
+
+### C++
+``` C++
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+
+	while (1) {
+		char input[100000];
+		cin >> input;
+		if (strcmp(input, "0") == 0) break;
+
+		int flag = 0;
+		for (int i = 0; i < strlen(input) / 2; i++) {
+			if (input[i] != input[strlen(input) - i - 1]) {
+				flag = 1;
+				break;
+			}
+		}
+		
+		if (flag == 1) cout << "no\n";
+		else cout << "yes\n";
+	}
+	return 0;
+}
+```
